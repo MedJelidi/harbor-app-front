@@ -1,0 +1,110 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-flex flex-column border justify-content-center align-items-center align-content-center">
+      <h5 class="mt-5 mb-3">Ajouter Un Moteur</h5>
+      <form (ngSubmit)="onSubmit()" [formGroup]="addForm" class="d-flex flex-column">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-column align-items-center">
+            <div class="form-group mt-4 w-75">
+              <label class="mb-3">
+                <input class="form-control" formControlName="marque" placeholder="Marque" type="text">
+              </label>
+            </div>
+            <div class="form-group mt-4 w-75">
+              <label class="mb-3">
+                <input class="form-control" formControlName="modele" placeholder="Modèle" type="text">
+              </label>
+            </div>
+            <div class="form-group mt-4 w-75">
+              <label class="mb-3">
+                <input class="form-control" formControlName="annee" placeholder="Année" type="text">
+              </label>
+            </div>
+            <div class="form-group mt-4 w-75">
+              <select aria-label="disponible" class="mb-3 custom-select mr-sm-2" formControlName="dispo">
+                <option selected value="Disponible">Disponible</option>
+                <option value="Non disponible">Non disponible</option>
+              </select>
+            </div>
+          </div>
+          <div class="d-flex flex-column align-items-center">
+            <div class="form-group mt-4 w-75">
+              <label class="mb-3">
+                <input class="form-control" formControlName="rc" placeholder="R.C" type="text">
+              </label>
+            </div>
+            <div class="form-group mt-4 w-75">
+              <label class="mb-3">
+                <input class="form-control" formControlName="prix" placeholder="Prix" type="text">
+              </label>
+            </div>
+            <div class="form-group mt-4 w-75">
+              <label class="mb-3">
+                <input class="form-control" formControlName="puissance" placeholder="Puissance" type="text">
+              </label>
+            </div>
+            <div class="form-group mt-4 w-75">
+              <select aria-label="etat" class="mb-3 custom-select mr-sm-2" formControlName="etat">
+                <option selected value="Occasion">Occasion</option>
+                <option value="Nouveau">Nouveau</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <div class="form-group mt-4 d-flex justify-content-between" style="width: 400px">
+            <div class="w-100-px">
+              <div class="outer-border w-100-px">
+                <div class="plus"></div>
+              </div>
+              <label class="file-input-1 m-0">
+                <input class="w-100 h-100" style="opacity: 0; cursor: pointer" (change)="onImageChange($event, 0)" formControlName="images" type="file">
+              </label>
+              <div *ngIf="imgUrls[0]" >
+                <img class="img1" [src]="imgUrls[0]" alt="engine1">
+                <div class="delete-icon">
+                  <img class="cursor-pointer" (click)="removeImg(0)" src="./assets/outline_delete_black_24dp.png" alt="delete">
+                </div>
+              </div>
+            </div>
+            <div class="w-100-px">
+              <div class="outer-border w-100-px">
+                <div class="plus"></div>
+              </div>
+              <label class="file-input-2 m-0">
+                <input class="w-100 h-100" style="opacity: 0; cursor: pointer" (change)="onImageChange($event, 1)" formControlName="images" type="file">
+              </label>
+              <div *ngIf="imgUrls[1]" >
+                <img class="img2" *ngIf="imgUrls[1]" [src]="imgUrls[1]" alt="engine2">
+                <div class="delete-icon">
+                  <img class="cursor-pointer" (click)="removeImg(1)" src="./assets/outline_delete_black_24dp.png" alt="delete">
+                </div>
+              </div>
+            </div>
+            <div class="w-100-px">
+              <div class="outer-border w-100-px">
+                <div class="plus"></div>
+              </div>
+              <label class="file-input-3 m-0">
+                <input class="w-100 h-100" style="opacity: 0; cursor: pointer" (change)="onImageChange($event, 2)" formControlName="images" type="file">
+              </label>
+              <div *ngIf="imgUrls[2]" >
+                <img class="img3" *ngIf="imgUrls[2]" [src]="imgUrls[2]" alt="engine3">
+                <div class="delete-icon">
+                  <img class="cursor-pointer" (click)="removeImg(2)" src="./assets/outline_delete_black_24dp.png" alt="delete">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="error.length > 0" [ngClass]="error.length > 0 ? 'd-block' : ''"
+               class="invalid-feedback text-center">
+            {{error}}
+          </div>
+          <button [disabled]="addForm.invalid || loading || !completeFiles()" class="btn btn-primary btn-ctm m-5" type="submit">
+            Ajouter
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

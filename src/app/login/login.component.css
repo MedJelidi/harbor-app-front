@@ -1,0 +1,19 @@
+#sign-in-btn {
+  background-color: #244777;
+  border-color: #244777
+}
+
+#reg-btn {
+  color: #244777;
+  text-decoration: none;
+  border: none;
+}
+
+#reg-btn:hover {
+  text-decoration: underline;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}

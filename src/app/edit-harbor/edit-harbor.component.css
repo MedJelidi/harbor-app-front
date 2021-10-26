@@ -1,0 +1,160 @@
+#btn-ctm {
+  background-color: #244777;
+  border-color: #244777;
+}
+
+#btn-ctm:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.outer-border {
+  border: 2px solid #244777;
+  width: 25%;
+  height: 105px;
+  border-radius: 3.5%;
+}
+
+.plus {
+  display:inline-block;
+  width:100%;
+  height:100%;
+  cursor: pointer;
+  background:
+    linear-gradient(#244777,#244777),
+    linear-gradient(#244777,#244777),
+    #fff;
+  background-position:center;
+  background-size: 50% 3px,3px 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-repeat:no-repeat;
+}
+
+/*.plus:hover {*/
+/*  background:*/
+/*    linear-gradient(#fff,#fff),*/
+/*    linear-gradient(#fff,#fff),*/
+/*    #244777;*/
+/*  background-position:center;*/
+/*  background-size: 50% 3px,3px 50%; !*thickness = 2px, length = 50% (25px)*!*/
+/*  background-repeat:no-repeat;*/
+/*}*/
+
+.file-input-1 {
+  height: 103px;
+  width: 97px;
+  bottom: 168px;
+  left: 75px;
+  position: absolute;
+}
+
+.file-input-2 {
+  height: 103px;
+  width: 97px;
+  bottom: 168px;
+  left: 225px;
+  position: absolute;
+}
+
+.file-input-3 {
+  height: 103px;
+  width: 97px;
+  bottom: 168px;
+  left: 375px;
+  position: absolute;
+}
+
+.w-100-px {
+  width: 100px;
+}
+
+
+.img1 {
+  width: 96px;
+  height: 101px;
+  position: absolute;
+  bottom: 169px;
+  left: 76px;
+}
+
+.img2 {
+  width: 96px;
+  height: 101px;
+  position: absolute;
+  bottom: 169px;
+  left: 226px;
+}
+
+.img3 {
+  width: 96px;
+  height: 101px;
+  position: absolute;
+  bottom: 169px;
+  left: 376px;
+}
+
+@media only screen and (max-width: 576px) {
+  .file-input-1 {
+    left: auto;
+  }
+
+  .img1 {
+    left: auto;
+  }
+
+  .file-input-2 {
+    left: auto;
+  }
+
+  .img2 {
+    left: auto;
+  }
+
+  .file-input-3 {
+    left: auto;
+  }
+
+  .img3 {
+    left: auto;
+  }
+
+}
+
+.file-input-1:hover {
+  background:
+    linear-gradient(#fff,#fff),
+    linear-gradient(#fff,#fff),
+    #244777;
+  background-position:center;
+  background-size: 50% 3px,3px 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-repeat:no-repeat;
+}
+
+.file-input-2:hover {
+  background:
+    linear-gradient(#fff,#fff),
+    linear-gradient(#fff,#fff),
+    #244777;
+  background-position:center;
+  background-size: 50% 3px,3px 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-repeat:no-repeat;
+}
+
+.file-input-3:hover {
+  background:
+    linear-gradient(#fff,#fff),
+    linear-gradient(#fff,#fff),
+    #244777;
+  background-position:center;
+  background-size: 50% 3px,3px 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-repeat:no-repeat;
+}
+
+.delete-icon {
+  position: absolute;
+  width: 100px;
+  text-align: center;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

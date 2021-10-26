@@ -1,0 +1,74 @@
+.ctm-width {
+  width: 76px;
+}
+
+.ctm-weight {
+  font-weight: unset;
+}
+
+.dropdown {
+  position: absolute;
+  right: 10px;
+  outline: none;
+  opacity: 0;
+  z-index: -1;
+  max-height: 0;
+}
+
+.menu-closed {
+  position: absolute;
+  right: 10px;
+  outline: none;
+  opacity: 0;
+  z-index: -1;
+  max-height: 0;
+}
+
+.menu-opened {
+  position: absolute;
+  right: 10px;
+  outline: none;
+  opacity: 1;
+  z-index: 100;
+  max-height: 100vh;
+}
+
+/*.dropdown-container:focus {*/
+/*  outline: none;*/
+/*}*/
+
+/*.dropdown-container:focus .dropdown {*/
+/*  opacity: 1;*/
+/*  z-index: 100;*/
+/*  max-height: 100vh;*/
+/*}*/
+
+.three-dots:after {
+  cursor: pointer;
+  color: #244777;
+  content: '\2807';
+  font-size: 20px;
+  padding: 0 5px;
+}
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #244777;
+}
+
+.svg-icon circle {
+  stroke: #244777;
+  stroke-width: 1;
+}
+
+@media only screen and (max-width: 810px) {
+  .to-oblivion {
+    display: none;
+  }
+}

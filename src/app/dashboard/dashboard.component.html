@@ -1,0 +1,120 @@
+<div class="container-fluid p-5 bg-color">
+  <div class="d-flex align-items-center mb-4">
+    <div class="d-flex align-items-center ctm-div" style="background: white">
+      <svg class="svg-icon mt-3 mb-3 ms-3 me-1" viewBox="0 0 20 20">
+        <path
+          d="M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z"></path>
+      </svg>
+      <label class="m-0" for="searchInput">
+        <input class="form-control ctm-input"
+               id="searchInput"
+               placeholder="Rechercher"
+               type="text"
+               (input)="onSearchChange($event)">
+      </label>
+    </div>
+    <select aria-label="Search By" class="form-select ctm-div" (change)="updateSearchBy($event)">
+      <option class="selected-opt" value="marque" selected>Marque</option>
+      <option value="modele">Modele</option>
+    </select>
+  </div>
+  <div class="d-flex justify-content-between align-items-center mb-4 p-4 section-ctm">
+    <h2>Add New Package</h2>
+    <img alt="add-icon" class="icon-btn" data-target="#addModal" data-toggle="modal"
+         src="./assets/outline_add_circle_black_24dp.png">
+  </div>
+  <div class="p-4 mb-3 section-ctm">
+    <h2>All Package</h2>
+  </div>
+  <div class="p-4 section-ctm">
+    <div class="d-flex justify-content-between flex-wrap pt-3 pb-3 border-bottom">
+      <h6 class="ctm-width m-0 align-self-center">Marque</h6>
+      <h6 class="ctm-width m-0 align-self-center">Modèle</h6>
+      <h6 class="ctm-width m-0 align-self-center to-oblivion">Année</h6>
+      <h6 class="ctm-width m-0 align-self-center">Puissance</h6>
+      <h6 class="ctm-width m-0 align-self-center">R.C</h6>
+      <h6 class="ctm-width m-0 align-self-center to-oblivion">Prix</h6>
+      <h6 class="ctm-width m-0 align-self-center to-oblivion">Etat</h6>
+      <h6 class="ctm-width m-0 align-self-center to-oblivion">Disponible</h6>
+      <div class="dropdown-container" tabindex="-1">
+        <div class="three-dots"></div>
+      </div>
+    </div>
+    <app-single-dash-engine (clickedEdit)="openEditModal($event)"
+                            (clickedDelete)="openDeleteModal($event)"
+                            (submitted)="onEdited($event)"
+                            *ngFor="let engine of engines"
+                            [annee]="engine.annee.toString()"
+                            [disponible]="engine.disponible.toString()"
+                            [etat]="engine.etat"
+                            [id]="engine._id"
+                            [marque]="engine.marque"
+                            [modele]="engine.modele"
+                            [prix]="engine.prix"
+                            [puissance]="engine.puissance"
+                            [rc]="engine.reservoirCarburant"
+                            class="d-flex justify-content-between flex-wrap pt-3 pb-3 border-bottom">
+    </app-single-dash-engine>
+
+    <!-- Add Modal -->
+    <div aria-hidden="true" aria-labelledby="add-harbor" class="modal fade" id="addModal" role="dialog" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 550px">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button #closeAddModal aria-label="Close" class="close" data-dismiss="modal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <app-add-harbor (submitted)="onCloseAddModal($event)"></app-add-harbor>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Edit Modal -->
+    <div aria-hidden="true" aria-labelledby="edit-harbor" class="modal fade" id="editModal" role="dialog" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 550px">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button aria-label="Close" class="close" data-dismiss="modal" type="button" (click)="onCloseEditModal()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <app-edit-harbor *ngIf="engineToEdit"
+                             (submitted)="onCloseEditModal()"
+                             [annee]="engineToEdit.annee.toString()"
+                             [disponible]="engineToEdit.disponible.toString()"
+                             [etat]="engineToEdit.etat"
+                             [id]="engineToEdit._id"
+                             [marque]="engineToEdit.marque"
+                             [modele]="engineToEdit.modele"
+                             [prix]="engineToEdit.prix"
+                             [puissance]="engineToEdit.puissance"
+                             [rc]="engineToEdit.reservoirCarburant"
+                             [images]="engineToEdit.images"></app-edit-harbor>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Delete Modal -->
+    <div aria-hidden="true" aria-labelledby="edit-harbor" class="modal fade" id="deleteModal" role="dialog" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 550px">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button aria-label="Close" class="close" data-dismiss="modal" type="button" (click)="onCloseDeleteModal(false)">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h4>Supprimer ce moteur?</h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary btn-ctm" (click)="onConfirmDelete()">Oui</button>
+            <button type="button" class="btn btn-secondary btn-ctm" data-dismiss="modal" (click)="onCloseDeleteModal(false)">Non</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

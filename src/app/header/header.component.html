@@ -1,0 +1,7 @@
+<header>
+  <div class="d-flex flex-row justify-content-between border-bottom align-items-center">
+    <img src="assets/logo_soundy.png" alt="logo_soundy" id="logo" routerLink="">
+    <button class="btn btn-outline-primary button-custom" routerLink="/login" *ngIf="!connected">Sign In</button>
+    <button class="btn btn-outline-primary button-custom" *ngIf="connected" (click)="onLogOut()">Log Out</button>
+  </div>
+</header>

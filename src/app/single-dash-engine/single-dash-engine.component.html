@@ -1,0 +1,43 @@
+<div class="d-flex justify-content-between flex-wrap pt-2 pb-2 w-100">
+  <h6 class="ctm-width m-0 ctm-weight align-self-center">{{marque}}</h6>
+  <h6 class="ctm-width m-0 ctm-weight align-self-center">{{modele}}</h6>
+  <h6 class="ctm-width m-0 ctm-weight align-self-center to-oblivion">{{annee}}</h6>
+  <h6 class="ctm-width m-0 ctm-weight align-self-center">{{puissance}}</h6>
+  <h6 class="ctm-width m-0 ctm-weight align-self-center">{{rc}}</h6>
+  <h6 class="ctm-width m-0 ctm-weight align-self-center to-oblivion">{{prix}}</h6>
+  <h6 class="ctm-width m-0 ctm-weight align-self-center to-oblivion">{{etat}}</h6>
+  <h6
+    class="ctm-width m-0 ctm-weight align-self-center to-oblivion">{{disponible === 'true' ? 'Disponible' : 'Non Disponible'}}</h6>
+  <div class="dropdown-container" tabindex="-1">
+    <div (click)="openCloseMenu()" class="three-dots"></div>
+    <div [ngClass]="{'menu-opened': opened, 'menu-closed': !opened}" class="list-group">
+      <button (click)="openCloseMenu()" class="list-group-item list-group-item-action" type="button">
+        <svg class="svg-icon" viewBox="0 0 20 20">
+          <path
+            d="M19.471,8.934L18.883,8.34c-2.096-2.14-4.707-4.804-8.903-4.804c-4.171,0-6.959,2.83-8.996,4.897L0.488,8.934c-0.307,0.307-0.307,0.803,0,1.109l0.401,0.403c2.052,2.072,4.862,4.909,9.091,4.909c4.25,0,6.88-2.666,8.988-4.807l0.503-0.506C19.778,9.737,19.778,9.241,19.471,8.934z M9.98,13.787c-3.493,0-5.804-2.254-7.833-4.3C4.182,7.424,6.493,5.105,9.98,5.105c3.536,0,5.792,2.301,7.784,4.332l0.049,0.051C15.818,11.511,13.551,13.787,9.98,13.787z"
+            fill="none"></path>
+          <circle cx="9.98" cy="9.446" fill="none" r="1.629"></circle>
+        </svg>&#160;&#160;
+        Consulter
+      </button>
+      <button (click)="openEditModal()" class="list-group-item list-group-item-action" type="button">
+        <svg class="svg-icon" viewBox="0 0 20 20">
+          <path
+            d="M19.404,6.65l-5.998-5.996c-0.292-0.292-0.765-0.292-1.056,0l-2.22,2.22l-8.311,8.313l-0.003,0.001v0.003l-0.161,0.161c-0.114,0.112-0.187,0.258-0.21,0.417l-1.059,7.051c-0.035,0.233,0.044,0.47,0.21,0.639c0.143,0.14,0.333,0.219,0.528,0.219c0.038,0,0.073-0.003,0.111-0.009l7.054-1.055c0.158-0.025,0.306-0.098,0.417-0.211l8.478-8.476l2.22-2.22C19.695,7.414,19.695,6.941,19.404,6.65z M8.341,16.656l-0.989-0.99l7.258-7.258l0.989,0.99L8.341,16.656z M2.332,15.919l0.411-2.748l4.143,4.143l-2.748,0.41L2.332,15.919z M13.554,7.351L6.296,14.61l-0.849-0.848l7.259-7.258l0.423,0.424L13.554,7.351zM10.658,4.457l0.992,0.99l-7.259,7.258L3.4,11.715L10.658,4.457z M16.656,8.342l-1.517-1.517V6.823h-0.003l-0.951-0.951l-2.471-2.471l1.164-1.164l4.942,4.94L16.656,8.342z"
+            fill="none"></path>
+        </svg>&#160;&#160;
+        Modifier
+      </button>
+      <button (click)="openDeleteModal()" class="list-group-item list-group-item-action" type="button">
+        <svg class="svg-icon" viewBox="0 0 20 20">
+          <path d="M18.693,3.338h-1.35l0.323-1.834c0.046-0.262-0.027-0.536-0.198-0.739c-0.173-0.206-0.428-0.325-0.695-0.325
+							H3.434c-0.262,0-0.513,0.114-0.685,0.312c-0.173,0.197-0.25,0.46-0.215,0.721L2.79,3.338H1.307c-0.502,0-0.908,0.406-0.908,0.908
+							c0,0.502,0.406,0.908,0.908,0.908h1.683l1.721,13.613c0.057,0.454,0.444,0.795,0.901,0.795h8.722c0.458,0,0.845-0.34,0.902-0.795
+							l1.72-13.613h1.737c0.502,0,0.908-0.406,0.908-0.908C19.601,3.744,19.195,3.338,18.693,3.338z M15.69,2.255L15.5,3.334H4.623
+							L4.476,2.255H15.69z M13.535,17.745H6.413L4.826,5.193H15.12L13.535,17.745z" fill="none"></path>
+        </svg>&#160;&#160;
+        Supprimer
+      </button>
+    </div>
+  </div>
+</div>

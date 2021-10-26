@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm p-5">
+      <div class="d-flex flex-column border justify-content-center align-items-center align-content-center">
+        <h5 class="mt-5 mb-3">Créez un compte</h5>
+        <form class="d-flex flex-column" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <div class="form-group mt-4">
+            <label class="mb-3">
+              <input type="text" class="form-control" formControlName="username" placeholder="Utilisateur">
+            </label>
+          </div>
+          <div class="form-group mt-4">
+            <label class="mb-3">
+              <input type="text" class="form-control" formControlName="email" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group mt-4">
+            <label class="mb-3">
+              <input type="password" class="form-control" formControlName="password" placeholder="Mot De Passe">
+            </label>
+          </div>
+          <div class="invalid-feedback text-center" *ngIf="error.length > 0" [ngClass]="error.length > 0 ? 'd-block' : ''">
+            {{error}}
+          </div>
+          <button type="submit" id="sign-up-btn" class="btn btn-primary m-5" [disabled]="userForm.invalid || loading">Créez un compte</button>
+          <button id="log-btn" class="btn btn-link mb-4" routerLink="../login">Se Connecter</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
+</div>

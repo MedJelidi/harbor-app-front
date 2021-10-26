@@ -1,0 +1,19 @@
+#logo {
+  width: 100px;
+}
+
+.button-custom {
+  color: #244777;
+  border-color: #244777;
+  margin: 25px;
+}
+
+.button-custom:hover {
+  color: white;
+  background-color: #244777;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
